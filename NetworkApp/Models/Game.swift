@@ -5,10 +5,6 @@
 //  Created by Vsevolod Lashin on 06.05.2023.
 //
 
-struct Games: Decodable {
-    let games: [Game]
-}
-
 struct Game: Decodable {
     let title: String
     let thumbnail: String
