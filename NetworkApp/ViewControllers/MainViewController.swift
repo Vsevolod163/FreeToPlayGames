@@ -16,7 +16,6 @@ final class MainViewController: UIViewController {
         fetchGames()
     }
 
-
 }
 
 // MARK: - Networking
