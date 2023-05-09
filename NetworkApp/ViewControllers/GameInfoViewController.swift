@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainViewController: UIViewController {
+final class GameInfoViewController: UIViewController {
 
     private let gamesURL = URL(string: "https://www.freetogame.com/api/games")!
     
@@ -19,7 +19,7 @@ final class MainViewController: UIViewController {
 }
 
 // MARK: - Networking
-extension MainViewController {
+extension GameInfoViewController {
     private func fetchGames() {
         URLSession.shared.dataTask(with: gamesURL) { data, _, error in
             guard let data else {
