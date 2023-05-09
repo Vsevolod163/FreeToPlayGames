@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		C63528182A0B06C1003FA728 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63528172A0B06C1003FA728 /* NetworkManager.swift */; };
+		C635281A2A0B0860003FA728 /* GamesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63528192A0B0860003FA728 /* GamesCollectionViewController.swift */; };
 		C6608F172A06B44E006F6769 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6608F162A06B44E006F6769 /* Game.swift */; };
 		C6E0DBDF2A06B05D00CDE0CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E0DBDE2A06B05D00CDE0CE /* AppDelegate.swift */; };
 		C6E0DBE12A06B05D00CDE0CE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E0DBE02A06B05D00CDE0CE /* SceneDelegate.swift */; };
-		C6E0DBE32A06B05D00CDE0CE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E0DBE22A06B05D00CDE0CE /* MainViewController.swift */; };
+		C6E0DBE32A06B05D00CDE0CE /* GameInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E0DBE22A06B05D00CDE0CE /* GameInfoViewController.swift */; };
 		C6E0DBE62A06B05D00CDE0CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E0DBE42A06B05D00CDE0CE /* Main.storyboard */; };
 		C6E0DBE82A06B05E00CDE0CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6E0DBE72A06B05E00CDE0CE /* Assets.xcassets */; };
 		C6E0DBEB2A06B05E00CDE0CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E0DBE92A06B05E00CDE0CE /* LaunchScreen.storyboard */; };
@@ -19,11 +20,12 @@
 
 /* Begin PBXFileReference section */
 		C63528172A0B06C1003FA728 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C63528192A0B0860003FA728 /* GamesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCollectionViewController.swift; sourceTree = "<group>"; };
 		C6608F162A06B44E006F6769 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		C6E0DBDB2A06B05D00CDE0CE /* NetworkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E0DBDE2A06B05D00CDE0CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6E0DBE02A06B05D00CDE0CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C6E0DBE22A06B05D00CDE0CE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C6E0DBE22A06B05D00CDE0CE /* GameInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoViewController.swift; sourceTree = "<group>"; };
 		C6E0DBE52A06B05D00CDE0CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C6E0DBE72A06B05E00CDE0CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6E0DBEA2A06B05E00CDE0CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -108,7 +110,8 @@
 		C6E0DBF52A06B0CF00CDE0CE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C6E0DBE22A06B05D00CDE0CE /* MainViewController.swift */,
+				C6E0DBE22A06B05D00CDE0CE /* GameInfoViewController.swift */,
+				C63528192A0B0860003FA728 /* GamesCollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -193,7 +196,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6608F172A06B44E006F6769 /* Game.swift in Sources */,
-				C6E0DBE32A06B05D00CDE0CE /* MainViewController.swift in Sources */,
+				C6E0DBE32A06B05D00CDE0CE /* GameInfoViewController.swift in Sources */,
+				C635281A2A0B0860003FA728 /* GamesCollectionViewController.swift in Sources */,
 				C63528182A0B06C1003FA728 /* NetworkManager.swift in Sources */,
 				C6E0DBDF2A06B05D00CDE0CE /* AppDelegate.swift in Sources */,
 				C6E0DBE12A06B05D00CDE0CE /* SceneDelegate.swift in Sources */,
