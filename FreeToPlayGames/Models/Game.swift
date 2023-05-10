@@ -1,6 +1,6 @@
 //
-//  Starwars.swift
-//  NetworkApp
+//  Game.swift
+//  FreeToPlayGames
 //
 //  Created by Vsevolod Lashin on 06.05.2023.
 //

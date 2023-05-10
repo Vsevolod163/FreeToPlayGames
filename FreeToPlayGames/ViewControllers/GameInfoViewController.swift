@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  NetworkApp
+//  GameInfoViewController.swift
+//  FreeToPlayGames
 //
 //  Created by Vsevolod Lashin on 06.05.2023.
 //

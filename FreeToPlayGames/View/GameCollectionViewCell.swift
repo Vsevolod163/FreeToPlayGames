@@ -1,6 +1,6 @@
 //
 //  GameCollectionViewCell.swift
-//  NetworkApp
+//  FreeToPlayGames
 //
 //  Created by Vsevolod Lashin on 10.05.2023.
 //
