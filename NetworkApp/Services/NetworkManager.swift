@@ -16,8 +16,6 @@ enum NetworkError: Error {
 final class NetworkManager {
     static var shared = NetworkManager()
     
-    private let gamesURL = URL(string: "https://www.freetogame.com/api/games")!
-    
     private init() {}
     
     func fetchImage(from url: URL, completion: @escaping (Result<Data, NetworkError>) -> Void) {
@@ -33,7 +31,7 @@ final class NetworkManager {
     }
     
     func fetch<T: Decodable>(_ type: T.Type, from url: URL, completion: @escaping (Result<T, NetworkError>) -> Void) {
-        URLSession.shared.dataTask(with: gamesURL) { data, _, error in
+        URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data else {
                 print(error?.localizedDescription ?? "No error description")
                 return
@@ -41,6 +39,7 @@ final class NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let dataModel = try decoder.decode(T.self, from: data)
                 DispatchQueue.main.async {
                     completion(.success(dataModel))

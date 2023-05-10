@@ -20,16 +20,16 @@ final class GamesCollectionViewController: UICollectionViewController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let gameInfoVC = segue.destination as? GameInfoViewController else { return }
+        guard let navigationVC = segue.destination as? UINavigationController else { return }
+        guard let gameInfoVC = navigationVC.topViewController as? GameInfoViewController else { return }
         guard let indexPaths = collectionView.indexPathsForSelectedItems, let indexPath =  indexPaths.first else { return }
-        gameInfoVC.game = allGames[indexPath.item]
-        print(indexPath.item)
+        
+        gameInfoVC.gameId = allGames[indexPath.item].id
     }
 
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(allGames.count)
-        return allGames.count
+        allGames.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -49,7 +49,7 @@ extension GamesCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: UIScreen.main.bounds.width, height: 200)
+        CGSize(width: UIScreen.main.bounds.width, height: 250)
     }
     
     
@@ -65,7 +65,6 @@ extension GamesCollectionViewController {
                 DispatchQueue.main.async {
                     self?.collectionView.reloadData()
                 }
-                print(games)
             case .failure(let error):
                 print(error)
             }
