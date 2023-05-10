@@ -9,11 +9,10 @@ import UIKit
 
 final class GameInfoViewController: UIViewController {
 
-    @IBOutlet var gameImageView: UIImageView!
     @IBOutlet var gameDescriptionLabel: UILabel!
+    @IBOutlet var screenshotsStackView: UIStackView!
     
     var gameId: Int!
-    
     private let networkManager = NetworkManager.shared
     
     override func viewDidLoad() {
@@ -34,7 +33,9 @@ extension GameInfoViewController {
         networkManager.fetch(Game.self, from: gameURL) { [weak self] result in
             switch result {
             case .success(let game):
+                print(game.id)
                 self?.configure(with: game)
+                self?.configureScreenshots(with: game)
             case .failure(let error):
                 print(error)
             }
@@ -51,16 +52,45 @@ extension GameInfoViewController {
                 Developer: \(game.developer)
                 Release Date: \(game.releaseDate)
                 
-                
                 \(game.description ?? "No description")
                 """
         }
-        networkManager.fetchImage(from: game.thumbnail) { [weak self] result in
-            switch result {
-            case .success(let imageData):
-                self?.gameImageView.image = UIImage(data: imageData)
-            case .failure(let error):
-                print(error)
+    }
+    
+    private func configureScreenshots(with game: Game) {
+        guard let screenshots = game.screenshots else { return }
+        
+        for subview in screenshotsStackView.subviews {
+               subview.removeFromSuperview()
+           }
+        
+        if screenshots.isEmpty {
+            networkManager.fetchImage(from: game.thumbnail) { [weak self] result in
+                switch result {
+                case .success(let imageData):
+                    let imageView = UIImageView(image: UIImage(data: imageData))
+                    imageView.widthAnchor.constraint(equalToConstant: (self?.view.bounds.width ?? 150) - 32).isActive = true
+                    
+                    self?.screenshotsStackView.addArrangedSubview(imageView)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            return
+        }
+        
+        for screenshot in screenshots {
+            networkManager.fetchImage(from: screenshot.image) { [weak self] result in
+                switch result {
+                case .success(let imageData):
+                    let imageView = UIImageView(image: UIImage(data: imageData))
+                    imageView.widthAnchor.constraint(equalToConstant: (self?.view.bounds.width ?? 150) - 50).isActive = true
+
+                    self?.screenshotsStackView.addArrangedSubview(imageView)
+                case .failure(let error):
+                    print(error)
+                    
+                }
             }
         }
     }
