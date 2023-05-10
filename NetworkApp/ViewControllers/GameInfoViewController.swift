@@ -33,7 +33,6 @@ extension GameInfoViewController {
         networkManager.fetch(Game.self, from: gameURL) { [weak self] result in
             switch result {
             case .success(let game):
-                print(game.id)
                 self?.configure(with: game)
                 self?.configureScreenshots(with: game)
             case .failure(let error):

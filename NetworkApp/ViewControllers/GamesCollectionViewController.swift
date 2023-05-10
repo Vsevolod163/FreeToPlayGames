@@ -11,7 +11,6 @@ final class GamesCollectionViewController: UICollectionViewController {
 
     private let networkManager = NetworkManager.shared
     private var allGames: [Game] = []
-    private let gamesURL = URL(string: "https://www.freetogame.com/api/games")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,13 +48,15 @@ extension GamesCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: UIScreen.main.bounds.width, height: 250)
+        CGSize(width: UIScreen.main.bounds.width, height: 270)
     }
 }
 
 // MARK: - Networking
 extension GamesCollectionViewController {
     private func fetchGames() {
+        let gamesURL = URL(string: "https://www.freetogame.com/api/games")!
+        
         networkManager.fetch([Game].self, from: gamesURL) { [weak self] result in
             switch result {
             case .success(let games):
