@@ -9,14 +9,12 @@ import UIKit
 
 final class GameInfoViewController: UIViewController {
 
-    
+    var game: Game!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
     }
-
 }
 
 // MARK: - Networking
