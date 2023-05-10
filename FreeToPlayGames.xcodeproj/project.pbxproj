@@ -24,7 +24,7 @@
 		C63528192A0B0860003FA728 /* GamesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCollectionViewController.swift; sourceTree = "<group>"; };
 		C635281C2A0B0BA5003FA728 /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
 		C6608F162A06B44E006F6769 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		C6E0DBDB2A06B05D00CDE0CE /* NetworkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6E0DBDB2A06B05D00CDE0CE /* FreeToPlayGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeToPlayGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E0DBDE2A06B05D00CDE0CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6E0DBE02A06B05D00CDE0CE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C6E0DBE22A06B05D00CDE0CE /* GameInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 		C6E0DBD22A06B05D00CDE0CE = {
 			isa = PBXGroup;
 			children = (
-				C6E0DBDD2A06B05D00CDE0CE /* NetworkApp */,
+				C6E0DBDD2A06B05D00CDE0CE /* FreeToPlayGames */,
 				C6E0DBDC2A06B05D00CDE0CE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,12 +72,12 @@
 		C6E0DBDC2A06B05D00CDE0CE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C6E0DBDB2A06B05D00CDE0CE /* NetworkApp.app */,
+				C6E0DBDB2A06B05D00CDE0CE /* FreeToPlayGames.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C6E0DBDD2A06B05D00CDE0CE /* NetworkApp */ = {
+		C6E0DBDD2A06B05D00CDE0CE /* FreeToPlayGames */ = {
 			isa = PBXGroup;
 			children = (
 				C635281B2A0B0B89003FA728 /* View */,
@@ -88,7 +88,7 @@
 				C6E0DBF22A06B08100CDE0CE /* App */,
 				C6E0DBF42A06B09A00CDE0CE /* Sources */,
 			);
-			path = NetworkApp;
+			path = FreeToPlayGames;
 			sourceTree = "<group>";
 		};
 		C6E0DBF22A06B08100CDE0CE /* App */ = {
@@ -138,9 +138,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C6E0DBDA2A06B05D00CDE0CE /* NetworkApp */ = {
+		C6E0DBDA2A06B05D00CDE0CE /* FreeToPlayGames */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C6E0DBEF2A06B05E00CDE0CE /* Build configuration list for PBXNativeTarget "NetworkApp" */;
+			buildConfigurationList = C6E0DBEF2A06B05E00CDE0CE /* Build configuration list for PBXNativeTarget "FreeToPlayGames" */;
 			buildPhases = (
 				C6E0DBD72A06B05D00CDE0CE /* Sources */,
 				C6E0DBD82A06B05D00CDE0CE /* Frameworks */,
@@ -150,9 +150,9 @@
 			);
 			dependencies = (
 			);
-			name = NetworkApp;
+			name = FreeToPlayGames;
 			productName = NetworkApp;
-			productReference = C6E0DBDB2A06B05D00CDE0CE /* NetworkApp.app */;
+			productReference = C6E0DBDB2A06B05D00CDE0CE /* FreeToPlayGames.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -170,7 +170,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C6E0DBD62A06B05D00CDE0CE /* Build configuration list for PBXProject "NetworkApp" */;
+			buildConfigurationList = C6E0DBD62A06B05D00CDE0CE /* Build configuration list for PBXProject "FreeToPlayGames" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -183,7 +183,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C6E0DBDA2A06B05D00CDE0CE /* NetworkApp */,
+				C6E0DBDA2A06B05D00CDE0CE /* FreeToPlayGames */,
 			);
 		};
 /* End PBXProject section */
@@ -361,7 +361,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W83LB3ZRMV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NetworkApp/App/Info.plist;
+				INFOPLIST_FILE = FreeToPlayGames/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -394,7 +394,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W83LB3ZRMV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NetworkApp/App/Info.plist;
+				INFOPLIST_FILE = FreeToPlayGames/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -421,7 +421,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C6E0DBD62A06B05D00CDE0CE /* Build configuration list for PBXProject "NetworkApp" */ = {
+		C6E0DBD62A06B05D00CDE0CE /* Build configuration list for PBXProject "FreeToPlayGames" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C6E0DBED2A06B05E00CDE0CE /* Debug */,
@@ -430,7 +430,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C6E0DBEF2A06B05E00CDE0CE /* Build configuration list for PBXNativeTarget "NetworkApp" */ = {
+		C6E0DBEF2A06B05E00CDE0CE /* Build configuration list for PBXNativeTarget "FreeToPlayGames" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C6E0DBF02A06B05E00CDE0CE /* Debug */,
