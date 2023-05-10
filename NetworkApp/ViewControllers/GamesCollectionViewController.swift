@@ -51,8 +51,6 @@ extension GamesCollectionViewController: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: UIScreen.main.bounds.width, height: 250)
     }
-    
-    
 }
 
 // MARK: - Networking
