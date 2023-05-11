@@ -14,6 +14,7 @@ final class GameInfoViewController: UIViewController {
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     var gameId: Int!
+    
     private let networkManager = NetworkManager.shared
     
     override func viewDidLoad() {activityIndicator.startAnimating()
@@ -65,9 +66,9 @@ extension GameInfoViewController {
     private func configureScreenshots(with game: Game) {
         guard let screenshots = game.screenshots else { return }
         
-        for subview in screenshotsStackView.subviews {
-               subview.removeFromSuperview()
-           }
+        for subview in screenshotsStackView.arrangedSubviews {
+            subview.removeFromSuperview()
+        }
         
         if screenshots.isEmpty {
             networkManager.fetchImage(from: game.thumbnail) { [weak self] result in
@@ -75,6 +76,9 @@ extension GameInfoViewController {
                 case .success(let imageData):
                     let imageView = UIImageView(image: UIImage(data: imageData))
                     imageView.widthAnchor.constraint(equalToConstant: (self?.view.bounds.width ?? 150) - 32).isActive = true
+                    imageView.contentMode = .scaleAspectFill
+                    imageView.layer.masksToBounds = true
+                    imageView.layer.cornerRadius = 10
                     
                     self?.screenshotsStackView.addArrangedSubview(imageView)
                     self?.gameDescriptionLabel.isHidden = false
@@ -87,33 +91,53 @@ extension GameInfoViewController {
             return
         }
         
-        for screenshot in screenshots {
+        for _ in screenshots {
+            let imageView = UIImageView()
+            imageView.widthAnchor.constraint(equalToConstant: view.bounds.width - 50).isActive = true
+            imageView.contentMode = .scaleAspectFill
+            imageView.layer.masksToBounds = true
+            imageView.layer.cornerRadius = 10
+            
+            screenshotsStackView.addArrangedSubview(imageView)
+            print(screenshotsStackView.arrangedSubviews.count)
+        }
+        
+        guard let subviews = screenshotsStackView.arrangedSubviews as? [UIImageView] else { return }
+        var count = 0
+        
+        for (screenshot, subview) in zip(screenshots, subviews) {
+            print(screenshots.count, subviews.count)
+            
             networkManager.fetchImage(from: screenshot.image) { [weak self] result in
                 switch result {
                 case .success(let imageData):
-                    let imageView = UIImageView(image: UIImage(data: imageData))
-                    imageView.widthAnchor.constraint(equalToConstant: (self?.view.bounds.width ?? 150) - 50).isActive = true
-                    imageView.layer.masksToBounds = true
-                    imageView.layer.cornerRadius = 10
-
-                    self?.screenshotsStackView.addArrangedSubview(imageView)
-                    
+                    subview.image = UIImage(data: imageData)
                     if screenshot == screenshots.last {
                         self?.gameDescriptionLabel.isHidden = false
                         self?.screenshotsStackView.isHidden = false
                         self?.activityIndicator.stopAnimating()
                     }
                 case .failure(let error):
-                    DispatchQueue.main.async {
-                        let imageView = UIImageView(image: UIImage(named: "No Image"))
-                        imageView.widthAnchor.constraint(equalToConstant: (self?.view.bounds.width ?? 150) - 32).isActive = true
-                        imageView.contentMode = .scaleAspectFill
-                        
-                        self?.screenshotsStackView.addArrangedSubview(imageView)
-                        self?.screenshotsStackView.isHidden = false
-                        self?.gameDescriptionLabel.isHidden = false
-                        self?.activityIndicator.stopAnimating()
+                    if count < 1 {
+                        self?.networkManager.fetchImage(from: game.thumbnail) { [weak self] result in
+                            switch result {
+                            case .success(let imageData):
+                                let imageView = UIImageView(image: UIImage(data: imageData))
+                                imageView.widthAnchor.constraint(equalToConstant: (self?.view.bounds.width ?? 150) - 32).isActive = true
+                                imageView.contentMode = .scaleAspectFill
+                                imageView.layer.masksToBounds = true
+                                imageView.layer.cornerRadius = 10
+                                
+                                self?.screenshotsStackView.addArrangedSubview(imageView)
+                                self?.gameDescriptionLabel.isHidden = false
+                                self?.screenshotsStackView.isHidden = false
+                                self?.activityIndicator.stopAnimating()
+                            case .failure(let error):
+                                print(error)
+                            }
+                        }
                     }
+                    count += 1
                     print(error)
                 }
             }
