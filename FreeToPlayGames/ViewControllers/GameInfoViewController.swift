@@ -93,6 +93,9 @@ extension GameInfoViewController {
                 case .success(let imageData):
                     let imageView = UIImageView(image: UIImage(data: imageData))
                     imageView.widthAnchor.constraint(equalToConstant: (self?.view.bounds.width ?? 150) - 50).isActive = true
+                    imageView.layer.masksToBounds = true
+                    imageView.layer.cornerRadius = 10
+
                     self?.screenshotsStackView.addArrangedSubview(imageView)
                     
                     if screenshot == screenshots.last {
