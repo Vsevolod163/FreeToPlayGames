@@ -12,6 +12,7 @@ final class GameInfoViewController: UIViewController {
     @IBOutlet var gameDescriptionLabel: UILabel!
     @IBOutlet var screenshotsStackView: UIStackView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var noDataLabel: UILabel!
     
     var gameId: Int!
     private var screenshotImageViews: [UIImageView] = []
@@ -23,6 +24,7 @@ final class GameInfoViewController: UIViewController {
         activityIndicator.hidesWhenStopped = true
         gameDescriptionLabel.isHidden = true
         screenshotsStackView.isHidden = true
+        noDataLabel.isHidden = true
         
         fetchGame()
     }
@@ -84,7 +86,12 @@ extension GameInfoViewController {
                         self?.gameDescriptionLabel.isHidden = false
                     }
                 case .failure(let error):
+                    DispatchQueue.main.async {
+                        self?.activityIndicator.stopAnimating()
+                        self?.noDataLabel.isHidden = false
+                    }
                     print(error)
+                    break
                 }
             }
         }
