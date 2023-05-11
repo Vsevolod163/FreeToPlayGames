@@ -7,13 +7,20 @@
 
 import UIKit
 
-final class GamesCollectionViewController: UICollectionViewController {
+final class GamesViewController: UIViewController {
 
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var collectionView: UICollectionView!
+    
     private let networkManager = NetworkManager.shared
     private var allGames: [Game] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        collectionView.isHidden = true
+        
         fetchGames()
     }
 
@@ -25,26 +32,40 @@ final class GamesCollectionViewController: UICollectionViewController {
         
         gameInfoVC.gameId = allGames[indexPath.item].id
     }
+}
 
-    // MARK: UICollectionViewDataSource
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+// MARK: - UICollectionViewDataSource
+extension GamesViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         allGames.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "showGame", for: indexPath)
         guard let gameVC = cell as? GameCollectionViewCell else {
             return UICollectionViewCell()
         }
         let game = allGames[indexPath.item]
-        gameVC.configure(with: game)
-    
+        
+        gameVC.gameLabel.text = "\(game.title) - \(game.genre)"
+        
+        networkManager.fetchImage(from: game.thumbnail) { [weak self] result in
+            switch result {
+            case .success(let imageData):
+                gameVC.gameImageView.image = UIImage(data: imageData)
+                collectionView.isHidden = false
+                self?.activityIndicator.stopAnimating()
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
         return cell
     }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension GamesCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension GamesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -53,7 +74,7 @@ extension GamesCollectionViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - Networking
-extension GamesCollectionViewController {
+extension GamesViewController {
     private func fetchGames() {
         let gamesURL = URL(string: "https://www.freetogame.com/api/games")!
         
