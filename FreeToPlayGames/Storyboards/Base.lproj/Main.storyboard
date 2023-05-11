@@ -138,13 +138,20 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="1ae-pX-iGy"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="QeM-kV-gV0"/>
                             </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uA7-Ou-OQh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="645"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VFP-ma-EuJ"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="uA7-Ou-OQh" firstAttribute="top" secondItem="jG1-yS-xkO" secondAttribute="top" id="1NS-NL-VzD"/>
                             <constraint firstItem="hup-XE-Wwk" firstAttribute="leading" secondItem="VFP-ma-EuJ" secondAttribute="leading" id="2I3-Yh-daV"/>
                             <constraint firstItem="hup-XE-Wwk" firstAttribute="trailing" secondItem="VFP-ma-EuJ" secondAttribute="trailing" id="Eko-kg-ah8"/>
                             <constraint firstItem="Ivt-4Y-eeO" firstAttribute="width" secondItem="jG1-yS-xkO" secondAttribute="width" id="Rju-mV-yKf"/>
+                            <constraint firstItem="uA7-Ou-OQh" firstAttribute="leading" secondItem="jG1-yS-xkO" secondAttribute="leading" id="S79-MG-3Co"/>
+                            <constraint firstAttribute="trailing" secondItem="uA7-Ou-OQh" secondAttribute="trailing" id="TwV-FT-2Td"/>
+                            <constraint firstAttribute="bottom" secondItem="uA7-Ou-OQh" secondAttribute="bottom" constant="22" id="gZc-gG-k9V"/>
                             <constraint firstItem="hup-XE-Wwk" firstAttribute="top" secondItem="jG1-yS-xkO" secondAttribute="top" id="uPC-oe-m2r"/>
                             <constraint firstItem="hup-XE-Wwk" firstAttribute="bottom" secondItem="VFP-ma-EuJ" secondAttribute="bottom" id="ue2-hD-AOP"/>
                         </constraints>
@@ -158,6 +165,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="uA7-Ou-OQh" id="k3C-M2-hbc"/>
                         <outlet property="gameDescriptionLabel" destination="4ct-oE-vBK" id="A5J-pS-Ih9"/>
                         <outlet property="screenshotsStackView" destination="YLy-Hb-50r" id="aaO-1e-baD"/>
                     </connections>

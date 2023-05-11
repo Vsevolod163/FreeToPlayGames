@@ -11,11 +11,17 @@ final class GameInfoViewController: UIViewController {
 
     @IBOutlet var gameDescriptionLabel: UILabel!
     @IBOutlet var screenshotsStackView: UIStackView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     var gameId: Int!
     private let networkManager = NetworkManager.shared
     
-    override func viewDidLoad() {
+    override func viewDidLoad() {activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        gameDescriptionLabel.isHidden = true
+        screenshotsStackView.isHidden = true
+        
         fetchGame()
     }
     
@@ -71,6 +77,9 @@ extension GameInfoViewController {
                     imageView.widthAnchor.constraint(equalToConstant: (self?.view.bounds.width ?? 150) - 32).isActive = true
                     
                     self?.screenshotsStackView.addArrangedSubview(imageView)
+                    self?.gameDescriptionLabel.isHidden = false
+                    self?.screenshotsStackView.isHidden = false
+                    self?.activityIndicator.stopAnimating()
                 case .failure(let error):
                     print(error)
                 }
@@ -84,11 +93,25 @@ extension GameInfoViewController {
                 case .success(let imageData):
                     let imageView = UIImageView(image: UIImage(data: imageData))
                     imageView.widthAnchor.constraint(equalToConstant: (self?.view.bounds.width ?? 150) - 50).isActive = true
-
                     self?.screenshotsStackView.addArrangedSubview(imageView)
-                case .failure(let error):
-                    print(error)
                     
+                    if screenshot == screenshots.last {
+                        self?.gameDescriptionLabel.isHidden = false
+                        self?.screenshotsStackView.isHidden = false
+                        self?.activityIndicator.stopAnimating()
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        let imageView = UIImageView(image: UIImage(named: "No Image"))
+                        imageView.widthAnchor.constraint(equalToConstant: (self?.view.bounds.width ?? 150) - 32).isActive = true
+                        imageView.contentMode = .scaleAspectFill
+                        
+                        self?.screenshotsStackView.addArrangedSubview(imageView)
+                        self?.screenshotsStackView.isHidden = false
+                        self?.gameDescriptionLabel.isHidden = false
+                        self?.activityIndicator.stopAnimating()
+                    }
+                    print(error)
                 }
             }
         }

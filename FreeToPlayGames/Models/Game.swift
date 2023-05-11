@@ -21,6 +21,6 @@ struct Game: Decodable {
     let screenshots: [Screenshot]?
 }
 
-struct Screenshot: Decodable {
+struct Screenshot: Decodable, Equatable {
     let image: URL
 }
