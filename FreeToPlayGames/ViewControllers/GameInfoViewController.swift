@@ -10,22 +10,18 @@ import UIKit
 final class GameInfoViewController: UIViewController {
 
     @IBOutlet var gameDescriptionLabel: UILabel!
+    @IBOutlet var singleImageView: UIImageView!
     @IBOutlet var screenshotsStackView: UIStackView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet var noDataLabel: UILabel!
     
     var gameId: Int!
-    private var screenshotImageViews: [UIImageView] = []
+    var imageData: (Data)!
     
     private let networkManager = NetworkManager.shared
+    private var screenshotImageViews: [UIImageView] = []
     
     override func viewDidLoad() {
-        activityIndicator.startAnimating()
-        activityIndicator.hidesWhenStopped = true
-        gameDescriptionLabel.isHidden = true
-        screenshotsStackView.isHidden = true
-        noDataLabel.isHidden = true
-        
+        updateStartUI()
         fetchGame()
     }
     
@@ -73,12 +69,15 @@ extension GameInfoViewController {
             subview.removeFromSuperview()
         }
         
+        if screenshots.isEmpty {
+            updateSingleImageViewUI()
+        }
+        
         for screenshot in screenshots {
             networkManager.fetchImage(from: screenshot.image) { [weak self] result in
                 switch result {
                 case .success(let imageData):
                     self?.configureImageView(with: imageData)
-                    
                     if self?.screenshotImageViews.count == screenshots.count {
                         self?.addImageViewsToStackView()
                         self?.activityIndicator.stopAnimating()
@@ -87,11 +86,9 @@ extension GameInfoViewController {
                     }
                 case .failure(let error):
                     DispatchQueue.main.async {
-                        self?.activityIndicator.stopAnimating()
-                        self?.noDataLabel.isHidden = false
+                        self?.updateSingleImageViewUI()
                     }
                     print(error)
-                    break
                 }
             }
         }
@@ -108,11 +105,30 @@ extension GameInfoViewController {
         
         let imageView = UIImageView(image: image)
         imageView.widthAnchor.constraint(equalToConstant: view.bounds.width - 50).isActive = true
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 10
         
         screenshotImageViews.append(imageView)
+    }
+    
+    private func updateStartUI() {
+        singleImageView.image = UIImage(data: imageData)
+        
+        singleImageView.layer.cornerRadius = 10
+        singleImageView.clipsToBounds = true
+
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
+        gameDescriptionLabel.isHidden = true
+        screenshotsStackView.isHidden = true
+        singleImageView.isHidden = true
+    }
+    
+    private func updateSingleImageViewUI() {
+        activityIndicator.stopAnimating()
+        gameDescriptionLabel.isHidden = false
+        singleImageView.isHidden = false
     }
 }
 

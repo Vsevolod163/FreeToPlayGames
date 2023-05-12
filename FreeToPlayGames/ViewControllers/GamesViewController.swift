@@ -31,6 +31,7 @@ final class GamesViewController: UIViewController {
         guard let indexPaths = collectionView.indexPathsForSelectedItems, let indexPath =  indexPaths.first else { return }
         
         gameInfoVC.gameId = allGames[indexPath.item].id
+        gameInfoVC.imageData = sender as? Data
     }
 }
 
@@ -60,7 +61,21 @@ extension GamesViewController: UICollectionViewDataSource {
             }
         }
         
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let game = allGames[indexPath.item]
+        
+        networkManager.fetchImage(from: game.thumbnail) { [weak self] result in
+            switch result {
+            case .success(let imageData):
+                self?.performSegue(withIdentifier: "showGame", sender: imageData)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 
