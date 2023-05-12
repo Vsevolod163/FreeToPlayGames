@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4U7-BS-mSv">
-    <device id="retina6_72" orientation="portrait" appearance="light"/>
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
@@ -14,28 +14,28 @@
             <objects>
                 <viewController id="aut-VV-Oxa" customClass="GamesViewController" customModule="FreeToPlayGames" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c7F-5k-XLZ">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Vaa-r7-ta9">
-                                <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="Ji6-uw-the">
-                                    <size key="itemSize" width="300" height="150"/>
+                                    <size key="itemSize" width="300" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="showGame" id="kyW-iM-JdD" customClass="GameCollectionViewCell" customModule="FreeToPlayGames" customModuleProvider="target">
-                                        <rect key="frame" x="65" y="0.0" width="300" height="150"/>
+                                        <rect key="frame" x="10" y="0.0" width="300" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZLh-i7-oPU">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Czu-iu-d0j">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="xVG-BC-CVg">
-                                                    <rect key="frame" x="16" y="32" width="268" height="118"/>
+                                                    <rect key="frame" x="16" y="32" width="268" height="168"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <integer key="value" value="10"/>
@@ -50,13 +50,13 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="xVG-BC-CVg" secondAttribute="trailing" constant="16" id="94R-OQ-9u2"/>
-                                                <constraint firstItem="Wdk-fj-OvD" firstAttribute="leading" secondItem="ZLh-i7-oPU" secondAttribute="leading" constant="16" id="Bkn-D7-hfe"/>
-                                                <constraint firstItem="Wdk-fj-OvD" firstAttribute="top" secondItem="ZLh-i7-oPU" secondAttribute="top" id="But-TZ-U6w"/>
-                                                <constraint firstItem="xVG-BC-CVg" firstAttribute="top" secondItem="Wdk-fj-OvD" secondAttribute="bottom" constant="8" id="Y9I-e8-0Fa"/>
-                                                <constraint firstAttribute="trailing" secondItem="Wdk-fj-OvD" secondAttribute="trailing" constant="16" id="kT3-Px-d2k"/>
-                                                <constraint firstItem="xVG-BC-CVg" firstAttribute="leading" secondItem="ZLh-i7-oPU" secondAttribute="leading" constant="16" id="sAA-K2-glp"/>
-                                                <constraint firstAttribute="bottom" secondItem="xVG-BC-CVg" secondAttribute="bottom" id="zi2-no-hpc"/>
+                                                <constraint firstAttribute="bottom" secondItem="xVG-BC-CVg" secondAttribute="bottom" id="Np5-yK-vsK"/>
+                                                <constraint firstItem="Wdk-fj-OvD" firstAttribute="top" secondItem="Czu-iu-d0j" secondAttribute="top" id="YNB-3W-D9E"/>
+                                                <constraint firstItem="xVG-BC-CVg" firstAttribute="leading" secondItem="Czu-iu-d0j" secondAttribute="leading" constant="16" id="Yf0-bx-6fZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="Wdk-fj-OvD" secondAttribute="trailing" constant="16" id="eAA-rY-ffy"/>
+                                                <constraint firstAttribute="trailing" secondItem="xVG-BC-CVg" secondAttribute="trailing" constant="16" id="eAS-Ny-ejf"/>
+                                                <constraint firstItem="xVG-BC-CVg" firstAttribute="top" secondItem="Wdk-fj-OvD" secondAttribute="bottom" constant="8" id="kUv-kf-ZIr"/>
+                                                <constraint firstItem="Wdk-fj-OvD" firstAttribute="leading" secondItem="Czu-iu-d0j" secondAttribute="leading" constant="16" id="lu1-6q-afc"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
@@ -71,7 +71,7 @@
                                 </connections>
                             </collectionView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="BNs-WU-f76">
-                                <rect key="frame" x="196.66666666666666" y="447.66666666666669" width="37" height="37"/>
+                                <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zub-l5-G0t"/>
@@ -93,33 +93,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUh-bQ-8y2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="-195"/>
+            <point key="canvasLocation" x="910" y="-195"/>
         </scene>
         <!--Game Info View Controller-->
         <scene sceneID="8nN-wz-tA9">
             <objects>
                 <viewController id="QKT-xc-AbR" customClass="GameInfoViewController" customModule="FreeToPlayGames" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jG1-yS-xkO">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hup-XE-Wwk">
-                                <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ivt-4Y-eeO">
-                                        <rect key="frame" x="0.0" y="0.0" width="430" height="339.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="230.5"/>
                                         <subviews>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bmd-HF-b9g">
-                                                <rect key="frame" x="16" y="20" width="398" height="279.66666666666669"/>
+                                                <rect key="frame" x="16" y="20" width="288" height="170.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J5a-PK-eFd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="279.66666666666669"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="170.5"/>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YLy-Hb-50r">
-                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="279.66666666666669"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="170.5"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J6K-0b-Qoo">
-                                                                <rect key="frame" x="0.0" y="0.0" width="240" height="279.66666666666669"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="240" height="170.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="240" id="3x9-vg-4TS"/>
                                                                 </constraints>
@@ -142,7 +142,7 @@
                                                 <viewLayoutGuide key="frameLayoutGuide" id="Vz1-cm-Soj"/>
                                             </scrollView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ct-oE-vBK">
-                                                <rect key="frame" x="16" y="319.66666666666669" width="398" height="0.0"/>
+                                                <rect key="frame" x="16" y="210.5" width="288" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -170,7 +170,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="QeM-kV-gV0"/>
                             </scrollView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uA7-Ou-OQh">
-                                <rect key="frame" x="0.0" y="0.0" width="430" height="910"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="546"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VFP-ma-EuJ"/>
@@ -205,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBr-eo-ZW0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2476" y="-194.75262368815595"/>
+            <point key="canvasLocation" x="2343" y="-195"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cns-bj-mEg">
@@ -213,7 +213,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="src-as-jcA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Umk-2e-Fhp">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -228,7 +228,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDT-jq-xlo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1726" y="-195"/>
+            <point key="canvasLocation" x="1620" y="-195"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VZQ-ZA-jWD">
@@ -236,7 +236,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4U7-BS-mSv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="QUR-P2-7bN">
-                        <rect key="frame" x="0.0" y="59" width="430" height="96"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="92.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
