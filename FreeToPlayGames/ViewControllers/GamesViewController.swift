@@ -9,12 +9,15 @@ import UIKit
 
 final class GamesViewController: UIViewController {
 
+    // MARK: - IBOutlets
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var collectionView: UICollectionView!
     
+    // MARK: - Private Properties
     private let networkManager = NetworkManager.shared
     private var allGames: [Game] = []
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.startAnimating()

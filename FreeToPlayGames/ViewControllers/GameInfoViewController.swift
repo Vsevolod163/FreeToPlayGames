@@ -33,7 +33,6 @@ final class GameInfoViewController: UIViewController {
     @IBAction func closeButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
-
 }
 
 // MARK: - Networking
