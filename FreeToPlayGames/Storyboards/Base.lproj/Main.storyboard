@@ -62,7 +62,6 @@
                                         <connections>
                                             <outlet property="gameImageView" destination="xVG-BC-CVg" id="zJH-ee-dba"/>
                                             <outlet property="gameLabel" destination="Wdk-fj-OvD" id="Ly6-BI-IXl"/>
-                                            <segue destination="src-as-jcA" kind="presentation" modalPresentationStyle="fullScreen" id="M0b-oq-Qi5"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -89,6 +88,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="BNs-WU-f76" id="Lf3-YS-ONn"/>
                         <outlet property="collectionView" destination="Vaa-r7-ta9" id="6VW-mR-201"/>
+                        <segue destination="src-as-jcA" kind="presentation" identifier="showGame" modalPresentationStyle="fullScreen" id="Ukh-tf-Yrl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SUh-bQ-8y2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -112,6 +112,10 @@
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bmd-HF-b9g">
                                                 <rect key="frame" x="16" y="20" width="398" height="279.66666666666669"/>
                                                 <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J5a-PK-eFd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="398" height="279.66666666666669"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YLy-Hb-50r">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="279.66666666666669"/>
                                                         <subviews>
@@ -202,6 +206,7 @@
                         <outlet property="gameDescriptionLabel" destination="4ct-oE-vBK" id="A5J-pS-Ih9"/>
                         <outlet property="noDataLabel" destination="GeF-s4-Qud" id="59s-7V-pVg"/>
                         <outlet property="screenshotsStackView" destination="YLy-Hb-50r" id="aaO-1e-baD"/>
+                        <outlet property="singleImageView" destination="J5a-PK-eFd" id="lb9-xW-AfL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBr-eo-ZW0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
