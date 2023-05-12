@@ -170,7 +170,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="QeM-kV-gV0"/>
                             </scrollView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uA7-Ou-OQh">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="546"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VFP-ma-EuJ"/>
@@ -182,7 +182,7 @@
                             <constraint firstItem="Ivt-4Y-eeO" firstAttribute="width" secondItem="jG1-yS-xkO" secondAttribute="width" id="Rju-mV-yKf"/>
                             <constraint firstItem="uA7-Ou-OQh" firstAttribute="leading" secondItem="jG1-yS-xkO" secondAttribute="leading" id="S79-MG-3Co"/>
                             <constraint firstAttribute="trailing" secondItem="uA7-Ou-OQh" secondAttribute="trailing" id="TwV-FT-2Td"/>
-                            <constraint firstAttribute="bottom" secondItem="uA7-Ou-OQh" secondAttribute="bottom" constant="22" id="gZc-gG-k9V"/>
+                            <constraint firstAttribute="bottom" secondItem="uA7-Ou-OQh" secondAttribute="bottom" id="gZc-gG-k9V"/>
                             <constraint firstItem="Bmd-HF-b9g" firstAttribute="height" secondItem="jG1-yS-xkO" secondAttribute="height" multiplier="0.3" id="ide-bh-BUb"/>
                             <constraint firstItem="hup-XE-Wwk" firstAttribute="top" secondItem="jG1-yS-xkO" secondAttribute="top" id="uPC-oe-m2r"/>
                             <constraint firstItem="hup-XE-Wwk" firstAttribute="bottom" secondItem="VFP-ma-EuJ" secondAttribute="bottom" id="ue2-hD-AOP"/>
