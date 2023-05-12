@@ -9,37 +9,42 @@ import UIKit
 
 final class GameInfoViewController: UIViewController {
 
+    // MARK: - IBOutlets
     @IBOutlet var gameDescriptionLabel: UILabel!
     @IBOutlet var singleImageView: UIImageView!
     @IBOutlet var screenshotsStackView: UIStackView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
+    // MARK: - Unwrapped Optional Properties
     var gameId: Int!
     var imageData: (Data)!
     
+    // MARK: - Private Properties
     private let networkManager = NetworkManager.shared
     private var screenshotImageViews: [UIImageView] = []
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         updateStartUI()
         fetchGame()
     }
     
+    // MARK: - IBActions
     @IBAction func closeButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
-    
+
 }
 
 // MARK: - Networking
 extension GameInfoViewController {
-    func fetchGame() {
+    private func fetchGame() {
         let gameURL = URL(string: "https://www.freetogame.com/api/game?id=\(gameId ?? 0)")!
-       
+        
         networkManager.fetch(Game.self, from: gameURL) { [weak self] result in
             switch result {
             case .success(let game):
-                self?.configureScreenshots(with: game)
+                self?.configureScreenshotsStackView(with: game)
                 self?.configureLabel(with: game)
             case .failure(let error):
                 print(error)
@@ -47,22 +52,7 @@ extension GameInfoViewController {
         }
     }
     
-    private func configureLabel(with game: Game) {
-        DispatchQueue.main.async { [weak self] in
-            self?.gameDescriptionLabel.text = """
-                Game: \(game.title)
-                Genre: \(game.genre)
-                Platform: \(game.platform)
-                Publisher: \(game.publisher)
-                Developer: \(game.developer)
-                Release Date: \(game.releaseDate)
-                
-                \(game.description ?? "No description")
-                """
-        }
-    }
-    
-    private func configureScreenshots(with game: Game) {
+    private func configureScreenshotsStackView(with game: Game) {
         guard let screenshots = game.screenshots else { return }
         
         for subview in screenshotsStackView.subviews {
@@ -93,10 +83,28 @@ extension GameInfoViewController {
             }
         }
     }
-    
+}
+
+// MARK: - Update UI Private functions
+extension GameInfoViewController {
     private func addImageViewsToStackView() {
         for imageView in screenshotImageViews {
             screenshotsStackView.addArrangedSubview(imageView)
+        }
+    }
+    
+    private func configureLabel(with game: Game) {
+        DispatchQueue.main.async { [weak self] in
+            self?.gameDescriptionLabel.text = """
+                Game: \(game.title)
+                Genre: \(game.genre)
+                Platform: \(game.platform)
+                Publisher: \(game.publisher)
+                Developer: \(game.developer)
+                Release Date: \(game.releaseDate)
+                
+                \(game.description ?? "No description")
+                """
         }
     }
     
@@ -117,7 +125,7 @@ extension GameInfoViewController {
         
         singleImageView.layer.cornerRadius = 10
         singleImageView.clipsToBounds = true
-
+        
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
         gameDescriptionLabel.isHidden = true
