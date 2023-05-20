@@ -6,11 +6,11 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class GamesViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var collectionView: UICollectionView!
     
     // MARK: - Private Properties
@@ -20,9 +20,6 @@ final class GamesViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.startAnimating()
-        activityIndicator.hidesWhenStopped = true
-        collectionView.isHidden = true
         
         fetchGames()
     }
@@ -53,16 +50,17 @@ extension GamesViewController: UICollectionViewDataSource {
         
         gameVC.gameLabel.text = "\(game.title) - \(game.genre)"
         
-        networkManager.fetchImage(from: game.thumbnail) { [weak self] result in
-            switch result {
-            case .success(let imageData):
-                gameVC.gameImageView.image = UIImage(data: imageData)
-                collectionView.isHidden = false
-                self?.activityIndicator.stopAnimating()
-            case .failure(let error):
-                print(error)
-            }
-        }
+        gameVC.gameImageView.kf.setImage(with: game.thumbnail)
+//        networkManager.fetchImage(from: game.thumbnail) { [weak self] result in
+//            switch result {
+//            case .success(let imageData):
+//                gameVC.gameImageView.image = UIImage(data: imageData)
+//                collectionView.isHidden = false
+//                self?.activityIndicator.stopAnimating()
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
         
         
         return cell
@@ -87,7 +85,7 @@ extension GamesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: UIScreen.main.bounds.width, height: view.frame.height / 3)
+        CGSize(width: UIScreen.main.bounds.width, height: view.frame.height / 3.5)
     }
 }
 

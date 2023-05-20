@@ -70,23 +70,17 @@
                                     <outlet property="delegate" destination="aut-VV-Oxa" id="hxm-Pn-CCA"/>
                                 </connections>
                             </collectionView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="BNs-WU-f76">
-                                <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
-                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Zub-l5-G0t"/>
                         <constraints>
                             <constraint firstItem="Vaa-r7-ta9" firstAttribute="top" secondItem="c7F-5k-XLZ" secondAttribute="top" id="08L-7I-9Be"/>
                             <constraint firstItem="Vaa-r7-ta9" firstAttribute="leading" secondItem="c7F-5k-XLZ" secondAttribute="leading" id="77z-I3-i3R"/>
                             <constraint firstAttribute="trailing" secondItem="Vaa-r7-ta9" secondAttribute="trailing" id="CQm-9W-z51"/>
-                            <constraint firstItem="BNs-WU-f76" firstAttribute="centerX" secondItem="c7F-5k-XLZ" secondAttribute="centerX" id="YAV-se-FNF"/>
-                            <constraint firstItem="BNs-WU-f76" firstAttribute="centerY" secondItem="c7F-5k-XLZ" secondAttribute="centerY" id="YGr-3P-2sz"/>
                             <constraint firstAttribute="bottom" secondItem="Vaa-r7-ta9" secondAttribute="bottom" id="yct-7J-CUa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Games" id="6cF-PG-vaG"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="BNs-WU-f76" id="Lf3-YS-ONn"/>
                         <outlet property="collectionView" destination="Vaa-r7-ta9" id="6VW-mR-201"/>
                         <segue destination="src-as-jcA" kind="presentation" identifier="showGame" modalPresentationStyle="fullScreen" id="Ukh-tf-Yrl"/>
                     </connections>

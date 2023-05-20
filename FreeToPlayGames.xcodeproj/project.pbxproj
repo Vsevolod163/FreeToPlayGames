@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C62B1F302A18FA1E000C0FA2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C62B1F2F2A18FA1E000C0FA2 /* Kingfisher */; };
 		C63528182A0B06C1003FA728 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63528172A0B06C1003FA728 /* NetworkManager.swift */; };
 		C635281A2A0B0860003FA728 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63528192A0B0860003FA728 /* GamesViewController.swift */; };
 		C635281D2A0B0BA5003FA728 /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C635281C2A0B0BA5003FA728 /* GameCollectionViewCell.swift */; };
@@ -39,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C62B1F302A18FA1E000C0FA2 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +153,9 @@
 			dependencies = (
 			);
 			name = FreeToPlayGames;
+			packageProductDependencies = (
+				C62B1F2F2A18FA1E000C0FA2 /* Kingfisher */,
+			);
 			productName = NetworkApp;
 			productReference = C6E0DBDB2A06B05D00CDE0CE /* FreeToPlayGames.app */;
 			productType = "com.apple.product-type.application";
@@ -179,6 +184,9 @@
 				Base,
 			);
 			mainGroup = C6E0DBD22A06B05D00CDE0CE;
+			packageReferences = (
+				C62B1F2E2A18FA1E000C0FA2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = C6E0DBDC2A06B05D00CDE0CE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -442,6 +450,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C62B1F2E2A18FA1E000C0FA2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C62B1F2F2A18FA1E000C0FA2 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C62B1F2E2A18FA1E000C0FA2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C6E0DBD32A06B05D00CDE0CE /* Project object */;
 }
